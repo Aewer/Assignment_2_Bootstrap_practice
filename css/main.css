@@ -130,12 +130,6 @@ p {
 .receipe-headline .receipe-duration h6:last-child {
   margin-bottom: 0; }
 
-.receipe-ratings .ratings {
-  margin-bottom: 30px; }
-.receipe-ratings i {
-  font-size: 18px;
-  color: #fbb710;
-  padding: 0 3px; }
 
 .single-preparation-step {
   position: relative;
