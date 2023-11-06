@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="shortcut icon" href="./img/recipe-book.png" />
+  <script src="https://kit.fontawesome.com/b64b05c1f3.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
@@ -63,6 +64,13 @@
             <h6>Prep: 10 mins</h6>
             <h6>Cook: 15 mins</h6>
             <h6>Servings: 10 to 12 biscuits</h6>
+          </div>
+          <div class="rating">
+            <i class="rating__star far fa-star"></i>
+            <i class="rating__star far fa-star"></i>
+            <i class="rating__star far fa-star"></i>
+            <i class="rating__star far fa-star"></i>
+            <i class="rating__star far fa-star"></i>
           </div>
         </div>
       </div>
@@ -132,10 +140,10 @@
         </div>
         <div class="row mt-3">
           <div class="col-md-3">
-            <button class="btn btn-primary" onclick="startTime()">Start</button>
+            <button class="btn btn-primary" id="startButton" onclick="startTime()">Start</button>
           </div>
           <div class="col-md-3">
-            <button class="btn btn-danger" onclick="stop()">Stop</button>
+            <button class="btn btn-danger" id="stopButton" onclick="stop()">Stop</button>
           </div>
         </div>
 
@@ -143,7 +151,7 @@
         <div class="input-group mb-3">
           <input id="newIngredient" class="form-control" type="text" placeholder="Add a new ingredient">
           <div class="input-group-append" style="margin-left:10px">
-            <button class="btn btn-primary" onclick="addIngredient()">Add</button>
+            <button class="btn btn-primary" onclick="addIngredient(); play();">Add</button>
           </div>
         </div>
         <ul id="toDoIngredients" class="list-group">
@@ -186,6 +194,9 @@
 </div>
 </div>
 </div>
+
+<audio id="audio" src="Sounds/mixkit-game-click-1114.wav"></audio>
+<audio id="audioStop" src="Sounds/mixkit-negative-tone-interface-tap-2569.wav"></audio>
 
 <footer class="page-footer">
   <p>

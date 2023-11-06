@@ -144,6 +144,19 @@ p {
   width: 60px;
   margin-bottom: 0; }
 
+.card:hover {
+  outline: 3px solid #65994C;
+  border-radius: 10px;
+}
+
+.rating {
+  width: 180px;
+}
+
+.rating__star {
+  cursor: pointer;
+  color: #dabd18b2;
+}
 
 /*
  * Remove text-shadow in selection highlight:
