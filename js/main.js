@@ -1,4 +1,132 @@
+//Scroll to top button
+let scrollButton = document.getElementById("myBtn");
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    scrollButton.style.display = "block";
+  } else {
+    scrollButton.style.display = "none";
+  }
+}
+
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+
+
+// Quiz
+
+
+const quizData = [
+  {
+    question: "What is the main ingredient in guacamole?",
+    options: ["Tomato", "Avocado", "Onion", "Lemon"],
+    correctAnswer: "Avocado"
+  },
+  {
+    question: "Which spice is often used in Indian curry dishes?",
+    options: ["Cinnamon", "Turmeric", "Rosemary", "Oregano"],
+    correctAnswer: "Turmeric"
+  },
+  {
+    question: "What is the primary ingredient in hummus?",
+    options: ["Chickpeas", "Black beans", "Lentils", "Pinto beans"],
+    correctAnswer: "Chickpeas"
+  },
+  {
+    question: "Which pasta is shaped like small rice grains?",
+    options: ["Orzo", "Fusilli", "Penne", "Farfalle"],
+    correctAnswer: "Orzo"
+  },
+  {
+    question: "What is the key ingredient in a classic Margherita pizza?",
+    options: ["Pepperoni", "Tomato sauce", "Mozzarella", "Olives"],
+    correctAnswer: "Mozzarella"
+  }
+];
+
+// DOM elements
+const questionContainer = document.getElementById("question-container");
+const optionsContainer = document.getElementById("options-container");
+const nextButton = document.getElementById("next-btn");
+const resultContainer = document.getElementById("result-container");
+
+let currentQuestionIndex = 0;
+let userScore = 0;
+
+// Function to load the current question
+function loadQuestion() {
+  const currentQuestion = quizData[currentQuestionIndex];
+  questionContainer.textContent = currentQuestion.question;
+
+  // Clear previous options
+  optionsContainer.innerHTML = "";
+
+  // Add options dynamically
+  currentQuestion.options.forEach((option, index) => {
+    const button = document.createElement("button");
+    button.className = "btn btn-secondary me-2";
+    button.textContent = option;
+    button.addEventListener("click", () => selectOption(option, currentQuestion.correctAnswer));
+    optionsContainer.appendChild(button);
+  });
+}
+
+// Function to handle option selection
+function selectOption(selectedOption, correctAnswer) {
+  if (selectedOption === correctAnswer) {
+    userScore++;
+  }
+
+  // Disable options after selection
+  document.querySelectorAll("#options-container button").forEach(button => {
+    button.disabled = true;
+  });
+
+  // Show next button
+  nextButton.disabled = false;
+}
+
+// Function to load the next question or show the result
+function loadNext() {
+  currentQuestionIndex++;
+
+  if (currentQuestionIndex < quizData.length) {
+    loadQuestion();
+    // Enable options for the new question
+    document.querySelectorAll("#options-container button").forEach(button => {
+      button.disabled = false;
+    });
+    nextButton.disabled = true;
+  } else {
+    showResult();
+  }
+}
+
+// Function to display the result
+function showResult() {
+  //resultContainer.innerHTML = `<p>Your Score: ${userScore} out of ${quizData.length}</p>`;
+  let myModal = new bootstrap.Modal(document.getElementById('myModal'), {});
+  let modalBody = document.querySelector("#myModal .modal-body");
+  //document.getElementById("myModal").innerHTML = "Your Score: ${userScore} out of ${quizData.length}";
+  //document.getElementsByClassName("modal-body").innerHTML = "<p>Your Score: ${userScore} out of ${quizData.length}</p>";
+  modalBody.innerHTML = `<p style="font-size:1.5rem">Your Score: ${userScore} out of ${quizData.length}</p>`;
+  myModal.show();
+}
+
+// Event listeners
+nextButton.addEventListener("click", loadNext);
+
+// Initialize the quiz
+loadQuestion();
+
+
 //Form validation
+
+
 function validateForm() {
   var name = document.getElementById("name").value;
   var email = document.getElementById("email").value;
@@ -113,6 +241,8 @@ function deleteIngredient(button) {
 
 
 // Star rating
+
+
 const ratingStars = [...document.getElementsByClassName("rating__star")];
 
 function executeRating(stars) {
@@ -152,4 +282,22 @@ function playStop() {
 }
 
 
+//Fullscreen video
 
+
+var elem = document.getElementById("myvideo");
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) { /* Safari */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE11 */
+    elem.msRequestFullscreen();
+  }
+}
+
+
+//Quiz
+
+
+// Define the quiz questions and options

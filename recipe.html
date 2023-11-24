@@ -32,7 +32,7 @@
           <a class="nav-link" href="about.html">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Contacts</a>
+          <a class="nav-link" href="contacts.html">Contacts</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-bs-toggle="dropdown" aria-expanded="false">Categories</a>
@@ -159,12 +159,28 @@
       </div>
 
         <div class="row">
+          <div class="col-12 text-center mt-3">
+            <button class="btn btn-primary" onclick="openFullscreen();" style="margin-bottom: 10px;">Open Video in Fullscreen Mode</button>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <video width="100%" controls id="myvideo">
+              <source src="Videos/stock.webm" type="video/webm">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+
+        <div class="row">
           <div class="col-12">
             <div class="section-heading text-left">
               <h3>Leave a comment</h3>
             </div>
           </div>
         </div>
+
       <div class="row">
         <div class="col-12">
           <div class="contact-form-area">
@@ -191,7 +207,7 @@
         </div>
       </div>
     </div>
-</div>
+  </div>
 </div>
 </div>
 
